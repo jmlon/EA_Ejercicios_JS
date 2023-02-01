@@ -1,4 +1,4 @@
-class Punto2D {
+export default class Punto2D {
 
     distancia(p2) {
         return Math.sqrt(

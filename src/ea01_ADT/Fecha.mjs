@@ -14,4 +14,15 @@ class Fecha {
         // TODO returnar True si el año es biciesto
     }
 
+
+    toString() {
+        return ""+this.año+"-"+this.mes+"-"+this.dia;
+    }
+
 }
+
+
+// Algunas pruebas
+let f = new Fecha(2023,2,1);
+console.log(`${f}`);
+
