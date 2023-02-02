@@ -1,10 +1,15 @@
+const SAMPLES = 5;
 
-function medirOrdenar(datos) {
-    let start = performance.now();
-    datos.sort();
-    let finish = performance.now();
+function medirOrdenar(datos, pruebas) {
+    let sum = 0;
+    for(let j=0; j<pruebas; j++) {
+        let start = performance.now();
+        datos.sort();
+        let finish = performance.now();
+        sum += finish-start;
+    }
     // console.log(`Tiempo con N=${datos.length} : ${finish-start} mseg`);
-    console.log(`${datos.length},${finish-start}`);
+    console.log(`${datos.length},${sum/pruebas}`);
 }
 
 function medicionesRangoN(Nmin, Nmax) {
@@ -13,7 +18,7 @@ function medicionesRangoN(Nmin, Nmax) {
         for(let i=0; i<N; i++) {
             datos.push(Math.random());
         }
-        medirOrdenar(datos);
+        medirOrdenar(datos, SAMPLES);
     }
 }
 

@@ -3,23 +3,27 @@ import Punto2D from './Punto2D.mjs';
 
 export default class Punto2DCartesiano extends Punto2D {
 
+    // Variables de instancia privadas
+    #x
+    #y
+
     constructor(x, y) {
         super();
-        this.x = x;
-        this.y = y;
+        this.#x = x;
+        this.#y = y;
     }
 
     toString() {
-        return "(" + this.x + "," + this.y + ")";
+        return "(" + this.#x + "," + this.#y + ")";
     }
 
-    get getX() { return this.x }
+    get getX() { return this.#x }
 
-    get getY() { return this.y }
+    get getY() { return this.#y }
 
-    set setX(newx) { this.x = newx }
+    set setX(newx) { this.#x = newx }
 
-    set setY(newy) { this.y = newy }
+    set setY(newy) { this.#y = newy }
 
 }
 

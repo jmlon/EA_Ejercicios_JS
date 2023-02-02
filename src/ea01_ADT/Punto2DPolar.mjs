@@ -4,21 +4,30 @@ import Punto2DCartesiano from './Punto2DCartesiano.mjs';
 
 export default class Punto2DPolar extends Punto2D {
 
+    // Instace varibles
+    #r
+    #theta
+
     constructor(r, t) {
         super();
-        this.r = r;
-        this.theta = this.toRadians(t);
+        this.#r = r;
+        this.#theta = Punto2DPolar.toRadians(t);
     }
 
-    toRadians(t) { return t * Math.PI / 180; };
 
-    toDegrees(t) { return t * 180 / Math.PI; };
+    toString() { return `Magnitud: ${this.#r}, Angulo: ${Punto2DPolar.toDegrees(this.#theta)}` };
 
-    toString() { return `Magnitud: ${this.r}, Angulo: ${this.toDegrees(this.theta)}` };
+    get getX() { return this.#r * Math.cos(this.#theta) };
 
-    get getX() { return this.r * Math.cos(this.theta) };
+    get getY() { return this.#r * Math.sin(this.#theta) };
 
-    get getY() { return this.r * Math.sin(this.theta) };
+
+    // Métodos estaticos: Funciones de biblioteca
+
+    static toRadians(t) { return t * Math.PI / 180; };
+
+    static toDegrees(t) { return t * 180 / Math.PI; };
+
 
 }
 
