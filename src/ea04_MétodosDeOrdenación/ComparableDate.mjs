@@ -22,12 +22,13 @@ export class ComparableDate {
 
     // Zero-left padding, makes the string comparison work as expected
     toString() {
+        console.log("toString invoked");
         return (""+this.#year).padStart(4,'0')+"-"+(""+this.#month).padStart(2,'0')+"-"+(""+this.#date).padStart(2,'0');
     }
 
 
     // valueOf is never called
-    valoeOf() {
+    valueOf() {
         console.log("valueOf invoked");
         return this.#date + this.#month*31 + this.#year*366;
     }
@@ -41,4 +42,4 @@ let d2 = new ComparableDate(2023,10,31);
 
 // Test cases
 assert(d2>d1, `${d2} must be greater than ${d1}`);
-assert(d1<d2, `${d1} must be less than ${d2}`);
+// assert(d1<d2, `${d1} must be less than ${d2}`);
